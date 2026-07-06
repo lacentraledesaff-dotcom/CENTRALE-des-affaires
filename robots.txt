@@ -1,0 +1,13 @@
+# Robots.txt — La Centrale Des Affaires
+# https://lacentraledesaffaires.fr
+
+User-agent: *
+Allow: /
+
+# Bloquer les pages admin et techniques
+Disallow: /admin/
+Disallow: /functions/
+Disallow: /admin.html
+
+# Sitemap
+Sitemap: https://lacentraledesaffaires.fr/sitemap.xml

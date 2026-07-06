@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Politique de Cookies | La Centrale Des Affaires</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #180995; --accent: #e7cb2f; --light: #f5f7fa;
+      --white: #ffffff; --gray: #6b7280; --border: #e2e8f0; --radius: 8px;
+      --font-display: 'Syne', sans-serif; --font-body: 'Inter', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--navy); background: var(--white); line-height: 1.6; }
+    nav {
+      position: sticky; top: 0; z-index: 100; background: var(--white);
+      border-bottom: 1px solid var(--border); display: flex; align-items: center;
+      justify-content: space-between; padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .logo { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--navy); text-decoration: none; letter-spacing: -.02em; }
+    .logo span { color: var(--accent); }
+    .back-link { text-decoration: none; color: var(--navy); font-weight: 600; font-size: .9rem; border: 1px solid var(--border); padding: .5rem 1.2rem; border-radius: var(--radius); transition: border-color .2s, color .2s; }
+    .back-link:hover { border-color: var(--accent); color: var(--accent); }
+    .legal-wrap { max-width: 760px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+    .legal-title { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: var(--navy); margin-bottom: .5rem; }
+    .legal-updated { font-size: .85rem; color: var(--gray); margin-bottom: 2.5rem; }
+    h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-top: 2.5rem; margin-bottom: .8rem; padding-bottom: .5rem; border-bottom: 2px solid var(--border); }
+    p { margin-bottom: 1rem; color: #374151; font-size: .96rem; }
+    ul { margin: 0 0 1rem 1.2rem; color: #374151; font-size: .96rem; }
+    li { margin-bottom: .4rem; }
+    strong { color: var(--navy); }
+    a.inline { color: var(--accent); text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: .9rem; }
+    th { background: var(--light); color: var(--navy); font-weight: 700; padding: .7rem 1rem; text-align: left; border: 1px solid var(--border); }
+    td { padding: .7rem 1rem; border: 1px solid var(--border); color: #374151; vertical-align: top; }
+    tr:nth-child(even) td { background: #fafafa; }
+
+    /* Badge statut cookie */
+    .badge { display: inline-block; padding: .2rem .6rem; border-radius: 999px; font-size: .78rem; font-weight: 700; }
+    .badge-required { background: #dcfce7; color: #15803d; }
+    .badge-optional { background: #fef9c3; color: #854d0e; }
+
+    /* Bouton gérer préférences */
+    .manage-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--navy);
+      color: var(--white);
+      padding: .7rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: .9rem;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font-body);
+      transition: opacity .2s;
+    }
+    .manage-btn:hover { opacity: .85; }
+
+    footer { background: var(--navy); color: #94a3b8; text-align: center; padding: 2rem; font-size: .85rem; }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    /* ════════════════════════════
+       BANDEAU COOKIES (à copier-coller dans index.html)
+    ════════════════════════════ */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 9999;
+      background: var(--navy);
+      color: #cbd5e1;
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.2);
+      animation: slideUp .4s ease;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    .cookie-banner.hidden { display: none; }
+    .cookie-text { flex: 1; min-width: 240px; font-size: .88rem; line-height: 1.6; }
+    .cookie-text a { color: var(--accent); text-decoration: underline; }
+    .cookie-actions { display: flex; gap: .8rem; flex-wrap: wrap; }
+    .btn-accept {
+      background: var(--accent);
+      color: var(--navy);
+      border: none;
+      padding: .65rem 1.4rem;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: .88rem;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .btn-accept:hover { opacity: .85; }
+    .btn-refuse {
+      background: transparent;
+      color: #94a3b8;
+      border: 1px solid #475569;
+      padding: .65rem 1.4rem;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: .88rem;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-refuse:hover { border-color: #94a3b8; color: var(--white); }
+    .btn-manage {
+      background: transparent;
+      color: #94a3b8;
+      border: none;
+      font-family: var(--font-body);
+      font-size: .82rem;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+    }
+
+    @media (max-width: 600px) {
+      .legal-wrap { padding: 2rem 1.2rem 3rem; }
+      table { display: block; overflow-x: auto; }
+      .cookie-banner { padding: 1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">La Centrale<span> Des Affaires</span></a>
+    <a href="index.html" class="back-link">← Retour au site</a>
+  </nav>
+
+  <!-- ══ BANDEAU COOKIES (démo) ══ -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-text">
+      🍪 Nous utilisons des cookies pour améliorer votre expérience et mesurer l'audience de notre site.
+      <a href="politique-cookies.html">En savoir plus</a>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn-accept" onclick="acceptCookies()">Tout accepter</button>
+      <button class="btn-refuse" onclick="refuseCookies()">Tout refuser</button>
+      <button class="btn-manage" onclick="manageCookies()">Personnaliser</button>
+    </div>
+  </div>
+
+  <div class="legal-wrap">
+    <h1 class="legal-title">Politique de Cookies</h1>
+    <p class="legal-updated">Dernière mise à jour : juin 2026</p>
+
+    <p>La Centrale Des Affaires utilise des cookies et traceurs sur son site internet. Cette page vous explique ce qu'est un cookie, quels cookies nous utilisons, et comment vous pouvez les gérer.</p>
+
+    <h2>1. Qu'est-ce qu'un cookie ?</h2>
+    <p>Un cookie est un petit fichier texte déposé sur votre appareil (ordinateur, tablette, smartphone) lors de votre visite sur un site internet. Il permet au site de mémoriser des informations sur votre navigation pour améliorer votre expérience et analyser le trafic.</p>
+    <p>Les cookies ont une durée de vie limitée et peuvent être supprimés à tout moment depuis votre navigateur.</p>
+
+    <h2>2. Les cookies que nous utilisons</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nom du cookie</th>
+          <th>Type</th>
+          <th>Finalité</th>
+          <th>Durée</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>cda_cookie_consent</strong></td>
+          <td><span class="badge badge-required">Nécessaire</span></td>
+          <td>Mémorise votre choix d'acceptation ou de refus des cookies</td>
+          <td>12 mois</td>
+        </tr>
+        <tr>
+          <td><strong>session_id</strong></td>
+          <td><span class="badge badge-required">Nécessaire</span></td>
+          <td>Maintien de votre session de navigation</td>
+          <td>Session</td>
+        </tr>
+        <tr>
+          <td><strong>_ga / _gid</strong></td>
+          <td><span class="badge badge-optional">Analytique</span></td>
+          <td>Google Analytics — mesure d'audience (pages vues, durée, source de trafic)</td>
+          <td>13 mois</td>
+        </tr>
+        <tr>
+          <td><strong>_gat</strong></td>
+          <td><span class="badge badge-optional">Analytique</span></td>
+          <td>Google Analytics — limitation du taux de requêtes</td>
+          <td>1 minute</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>3. Cookies nécessaires</h2>
+    <p>Ces cookies sont indispensables au bon fonctionnement du site. Ils ne collectent aucune information personnelle à des fins marketing et <strong>ne nécessitent pas votre consentement</strong>. Ils sont automatiquement déposés lors de votre visite.</p>
+
+    <h2>4. Cookies analytiques</h2>
+    <p>Ces cookies nous permettent de comprendre comment les visiteurs utilisent notre site (pages les plus consultées, durée des visites, provenance du trafic). Ces statistiques sont anonymisées et nous aident à améliorer nos contenus.</p>
+    <p>Ces cookies sont déposés <strong>uniquement si vous les acceptez</strong> via notre bandeau.</p>
+
+    <h2>5. Gestion de vos préférences</h2>
+    <p>Vous pouvez à tout moment modifier vos choix en cliquant sur le bouton ci-dessous :</p>
+    <button class="manage-btn" onclick="resetCookies()">🔧 Gérer mes préférences cookies</button>
+
+    <p style="margin-top:1.2rem;">Vous pouvez également désactiver les cookies directement dans votre navigateur :</p>
+    <ul>
+      <li><a href="https://support.google.com/chrome/answer/95647" class="inline" target="_blank">Google Chrome</a></li>
+      <li><a href="https://support.mozilla.org/fr/kb/effacer-cookies-donnees-site-firefox" class="inline" target="_blank">Mozilla Firefox</a></li>
+      <li><a href="https://support.apple.com/fr-fr/guide/safari/sfri11471/mac" class="inline" target="_blank">Apple Safari</a></li>
+      <li><a href="https://support.microsoft.com/fr-fr/windows/supprimer-et-g%C3%A9rer-les-cookies" class="inline" target="_blank">Microsoft Edge</a></li>
+    </ul>
+    <p>⚠️ La désactivation de certains cookies peut affecter le bon fonctionnement du site.</p>
+
+    <h2>6. Cookies tiers</h2>
+    <p>Certains cookies sont déposés par des services tiers intégrés à notre site (ex. : Google Analytics). La Centrale Des Affaires n'a pas de contrôle direct sur ces cookies. Nous vous invitons à consulter les politiques de confidentialité de ces services :</p>
+    <ul>
+      <li><a href="https://policies.google.com/privacy" class="inline" target="_blank">Politique de confidentialité Google</a></li>
+    </ul>
+
+    <h2>7. Contact</h2>
+    <p>Pour toute question relative à notre utilisation des cookies :</p>
+    <ul>
+      <li>E-mail : contact@lacentraledesaffaires.fr</li>
+      <li>Téléphone : 01 43 79 22 35</li>
+    </ul>
+  </div>
+
+  <footer>
+    © La Centrale Des Affaires 2026 —
+    <a href="index.html">Accueil</a> ·
+    <a href="mentions-legales.html">Mentions légales</a> ·
+    <a href="politique-confidentialite.html">Confidentialité</a>
+  </footer>
+
+  <script>
+    // ── Gestion du bandeau cookies ──
+    function acceptCookies() {
+      localStorage.setItem('cda_cookie_consent', 'accepted');
+      document.getElementById('cookieBanner').classList.add('hidden');
+    }
+    function refuseCookies() {
+      localStorage.setItem('cda_cookie_consent', 'refused');
+      document.getElementById('cookieBanner').classList.add('hidden');
+    }
+    function manageCookies() {
+      alert('Ici vous pouvez intégrer un panneau de gestion avancée (ex : Axeptio, Tarteaucitron).');
+    }
+    function resetCookies() {
+      localStorage.removeItem('cda_cookie_consent');
+      document.getElementById('cookieBanner').classList.remove('hidden');
+    }
+
+    // Masquer si déjà choisi
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('cda_cookie_consent')) {
+        document.getElementById('cookieBanner').classList.add('hidden');
+      }
+    });
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+    📋 CODE DU BANDEAU À COLLER DANS index.html
+    ══════════════════════════════════════════════════════════
+
+  1. Coller ce bloc juste après <body> dans index.html :
+
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-text">
+      🍪 Nous utilisons des cookies pour améliorer votre expérience.
+      <a href="politique-cookies.html">En savoir plus</a>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn-accept" onclick="acceptCookies()">Tout accepter</button>
+      <button class="btn-refuse" onclick="refuseCookies()">Tout refuser</button>
+    </div>
+  </div>
+
+  2. Coller ce CSS dans le <style> de index.html :
+  (voir le bloc .cookie-banner dans ce fichier)
+
+  3. Coller ce JS avant </body> dans index.html :
+  (voir le bloc <script> dans ce fichier)
+  ══════════════════════════════════════════════════════════ -->
+
+</body>
+</html>

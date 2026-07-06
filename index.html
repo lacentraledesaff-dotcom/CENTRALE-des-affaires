@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- SEO -->
+  <meta name="description" content="La Centrale Des Affaires — N°1 du discount électroménager à Paris. Frigos, lave-linge, TV, literie des grandes marques à prix imbattables. Livraison ou retrait en magasin."/>
+  <meta name="keywords" content="électroménager discount Paris, frigo pas cher, lave-linge discount, TV pas cher, literie discount, La Centrale Des Affaires"/>
+  <meta name="author" content="La Centrale Des Affaires"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://lacentraledesaffaires.fr/"/>
+
+  <!-- Open Graph (partage réseaux sociaux) -->
+  <meta property="og:title" content="La Centrale Des Affaires — N°1 du Discount Électroménager"/>
+  <meta property="og:description" content="Frigos, lave-linge, TV, literie des grandes marques à prix discount. Livraison ou retrait en magasin à Paris."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://lacentraledesaffaires.fr/"/>
+  <meta property="og:image" content="https://lacentraledesaffaires.fr/magasin.png"/>
+  <meta property="og:locale" content="fr_FR"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="La Centrale Des Affaires — Discount Électroménager Paris"/>
+  <meta name="twitter:description" content="Frigos, lave-linge, TV à prix discount. Grandes marques, petits prix."/>
+  <meta name="twitter:image" content="https://lacentraledesaffaires.fr/magasin.png"/>
+
+  <!-- Schema.org (données structurées pour Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "La Centrale Des Affaires",
+    "description": "Spécialiste de l'électroménager discount à Paris. Grandes marques à prix imbattables.",
+    "url": "https://lacentraledesaffaires.fr",
+    "telephone": "+33143792235",
+    "email": "contact@lacentraledesaffaires.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "47 Boulevard de Ménilmontant",
+      "addressLocality": "Paris",
+      "postalCode": "75011",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.8644,
+      "longitude": 2.3828
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    },
+    "priceRange": "€€",
+    "image": "https://lacentraledesaffaires.fr/magasin.png"
+  }
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> LaCentraleDesAffaires Électroménager & Literie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #180595;
+      --blue:   #2713bc;
+      --accent: #e7cb2f;
+      --light:  #f5f7fa;
+      --white:  #ffffff;
+      --gray:   #1f2b44;
+      --border: #e2e8f0;
+      --radius: 8px;
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--navy); background: var(--white); }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--navy);
+      color: #94a3b8;
+      font-size: .8rem;
+      padding: .5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar a { color: inherit; text-decoration: none; }
+    .topbar-socials { display: flex; gap: 1rem; }
+    .topbar-socials a:hover { color: var(--white); }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -.02em;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 500;
+      font-size: .95rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white) !important;
+      padding: .5rem 1.2rem;
+      border-radius: var(--radius);
+      transition: opacity .2s !important;
+    }
+    .nav-cta:hover { opacity: .85; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(120deg, var(--navy) 55%, var(--blue) 100%);
+      color: var(--white);
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-content { max-width: 620px; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(30, 84, 232, 0.25);
+      color: #e7cb2f;
+      border: 1px solid rgba(2, 40, 253, 0.4);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .3rem .9rem;
+      border-radius: 999px;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em { font-style: normal; color: #e7cb2f; }
+    .hero p {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      padding: .85rem 2rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: .85; }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,.3);
+      color: var(--white);
+      padding: .85rem 2rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+    /* ── MARQUES (bandeau défilant) ── */
+    .brands-bar {
+      background: var(--light);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      padding: 1.2rem 0;
+    }
+    .brands-track {
+      display: flex;
+      gap: 3.5rem;
+      align-items: center;
+      animation: scroll-brands 22s linear infinite;
+      width: max-content;
+    }
+    .brands-track:hover { animation-play-state: paused; }
+    @keyframes scroll-brands {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .brand-item {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #94a3b8;
+      white-space: nowrap;
+      letter-spacing: .04em;
+      transition: color .2s;
+    }
+    .brand-item:hover { color: var(--navy); }
+    .brand-sep { color: var(--border); }
+
+    /* ── SECTIONS communes ── */
+    section { padding: 5rem 2rem; }
+    .section-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .6rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 540px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ── À PROPOS ── */
+    #a-propos { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-img {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .stat-box {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .stat-num span { color: var(--accent); }
+    .stat-label { font-size: .85rem; color: var(--gray); margin-top: .3rem; }
+
+    /* ── CATÉGORIES / PRODUITS ── */
+    #produits { background: var(--light); }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin-top: 3rem;
+    }
+    .cat-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .cat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.08); }
+    .cat-icon { font-size: 2.4rem; margin-bottom: .8rem; }
+    .cat-name { font-weight: 600; font-size: .95rem; color: var(--navy); }
+
+    /* ── MAGASINS ── */
+    #nos-magasins { background: var(--white); }
+    .stores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .store-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+    .store-card:hover { box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+    .store-map-placeholder {
+      height: 140px;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+    .store-info { padding: 1.4rem; }
+    .store-name { font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: .4rem; }
+    .store-addr { font-size: .88rem; color: var(--gray); line-height: 1.5; }
+    .store-badge {
+      display: inline-block;
+      margin-top: .7rem;
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .25rem .7rem;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--light); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .contact-perks { display: flex; flex-direction: column; gap: 1.5rem; }
+    .perk { display: flex; gap: 1rem; align-items: flex-start; }
+    .perk-icon {
+      width: 44px; height: 44px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .perk-text h4 { font-weight: 700; font-size: .95rem; color: var(--navy); }
+    .perk-text p  { font-size: .85rem; color: var(--gray); margin-top: .25rem; line-height: 1.5; }
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .field { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+    .field label { font-size: .85rem; font-weight: 600; color: var(--navy); }
+    .field input, .field textarea, .field select {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: .7rem 1rem;
+      font-family: var(--font-body);
+      font-size: .93rem;
+      color: var(--navy);
+      background: var(--white);
+      outline: none;
+      transition: border-color .2s;
+    }
+    .field input:focus, .field textarea:focus { border-color: var(--accent); }
+    .field textarea { min-height: 110px; resize: vertical; }
+    .form-submit {
+      width: 100%;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: .85rem;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: .97rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .form-submit:hover { opacity: .85; }
+    .form-consent { font-size: .78rem; color: var(--gray); margin-bottom: 1rem; line-height: 1.5; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: #94a3b8;
+      padding: 3.5rem 2rem 1.5rem;
+    }
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.4fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-desc { font-size: .88rem; line-height: 1.7; }
+    .footer-col h4 { font-size: .85rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; letter-spacing: .06em; text-transform: uppercase; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .footer-col ul a { color: #94a3b8; text-decoration: none; font-size: .88rem; transition: color .2s; }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-contact-item { display: flex; gap: .6rem; font-size: .88rem; margin-bottom: .7rem; }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 1.5rem auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .8rem;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .footer-bottom a { color: #94a3b8; text-decoration: none; }
+    .footer-bottom a:hover { color: var(--white); }
+    .socials { display: flex; gap: .8rem; }
+    .socials a {
+      width: 34px; height: 34px;
+      background: rgba(255,255,255,.08);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background .2s;
+    }
+    .socials a:hover { background: rgba(255,255,255,.18); }
+
+    /* ── BACK TO TOP ── */
+    .back-top {
+      position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 99;
+      width: 42px; height: 42px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(238, 122, 14, 0.184);
+      opacity: 0;
+      transition: opacity .3s;
+      pointer-events: none;
+    }
+    .back-top.visible { opacity: 1; pointer-events: auto; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 680px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem; gap: 1rem; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      nav { flex-wrap: wrap; position: relative; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .topbar { flex-direction: column; gap: .3rem; text-align: center; }
+      .hero-btns { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .brands-track { animation: none; }
+    }
+
+    /* ── BANDEAU COOKIES ── */
+    .cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+      background: var(--navy); color: #cbd5e1;
+      padding: 1.2rem 2rem; display: flex; align-items: center;
+      gap: 1.5rem; flex-wrap: wrap;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.2);
+      animation: slideUp .4s ease;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    .cookie-banner.hidden { display: none; }
+    .cookie-text { flex: 1; min-width: 240px; font-size: .88rem; line-height: 1.6; }
+    .cookie-text a { color: var(--accent); text-decoration: underline; }
+    .cookie-actions { display: flex; gap: .8rem; flex-wrap: wrap; align-items: center; }
+    .btn-cookie-accept {
+      background: var(--accent); color: var(--navy); border: none;
+      padding: .65rem 1.4rem; border-radius: var(--radius);
+      font-family: var(--font-body); font-weight: 700; font-size: .88rem;
+      cursor: pointer; transition: opacity .2s;
+    }
+    .btn-cookie-accept:hover { opacity: .85; }
+    .btn-cookie-refuse {
+      background: transparent; color: #94a3b8; border: 1px solid #475569;
+      padding: .65rem 1.4rem; border-radius: var(--radius);
+      font-family: var(--font-body); font-weight: 600; font-size: .88rem;
+      cursor: pointer; transition: border-color .2s, color .2s;
+    }
+    .btn-cookie-refuse:hover { border-color: #94a3b8; color: var(--white); }
+    .btn-cookie-more {
+      background: transparent; color: #94a3b8; border: none;
+      font-family: var(--font-body); font-size: .82rem;
+      cursor: pointer; text-decoration: underline; padding: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANDEAU COOKIES -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-text">
+      🍪 Nous utilisons des cookies pour améliorer votre expérience et mesurer l'audience de notre site.
+      <a href="politique-cookies.html">En savoir plus</a>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn-cookie-accept" id="btnAccept">Tout accepter</button>
+      <button class="btn-cookie-refuse" id="btnRefuse">Tout refuser</button>
+      <button class="btn-cookie-more" onclick="window.location='politique-cookies.html'">Personnaliser</button>
+    </div>
+  </div>
+
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <span>📧 <a href="mailto:nsisarl@hotmail.com">nsisarl@hotmail.com</a> &nbsp;|&nbsp; 📞 01 43 79 22 35</span>
+    <div class="topbar-socials">
+      <a href="#" title="Facebook">fb</a>
+      <a href="#" title="Instagram">ig</a>
+      <a href="#" title="Twitter">tw</a>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#" class="logo">LaCentraleDes<span>Affaires.com</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#a-propos">À Propos</a></li>
+      <li><a href="#produits">Produits</a></li>
+      <li><a href="#nos-magasins">Nos Magasins</a></li>
+      <li><a href="mentions-legales.html">Mentions légales</a></li>
+      <li><a href="#contact" class="nav-cta">Contactez-nous</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">✦ Déstockage &amp; Prix Bas</span>
+      <h1>L'électroménager de <em>grandes marques</em>, au meilleurs prix</h1>
+      <p>Depuis 1994, spécialistes de l'électroménager, literie et TV — avec des prix imbattables et un service expert.</p>
+      <div class="hero-btns">
+        <a href="#produits" class="btn-primary">Voir nos produits →</a>
+        <a href="#nos-magasins" class="btn-outline">Trouvez nos magasins</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BANDEAU MARQUES -->
+  <div class="brands-bar" aria-label="Nos marques partenaires">
+    <div class="brands-track">
+      <!-- Répété 2× pour boucle infinie -->
+      <span class="brand-item">Whirlpool</span><span class="brand-sep">·</span>
+      <span class="brand-item">Bosch</span><span class="brand-sep">·</span>
+      <span class="brand-item">Miele</span><span class="brand-sep">·</span>
+      <span class="brand-item">Haier</span><span class="brand-sep">·</span>
+      <span class="brand-item">Beko</span><span class="brand-sep">·</span>
+      <span class="brand-item">Nescafé</span><span class="brand-sep">·</span>
+      <span class="brand-item">Brandt</span><span class="brand-sep">·</span>
+      <span class="brand-item">Braun</span><span class="brand-sep">·</span>
+      <span class="brand-item">Kenwood</span><span class="brand-sep">·</span>
+      <span class="brand-item">Candy</span><span class="brand-sep">·</span>
+      <span class="brand-item">Whirlpool</span><span class="brand-sep">·</span>
+      <span class="brand-item">Bosch</span><span class="brand-sep">·</span>
+      <span class="brand-item">Miele</span><span class="brand-sep">·</span>
+      <span class="brand-item">Haier</span><span class="brand-sep">·</span>
+      <span class="brand-item">Beko</span><span class="brand-sep">·</span>
+      <span class="brand-item">Nescafé</span><span class="brand-sep">·</span>
+      <span class="brand-item">Brandt</span><span class="brand-sep">·</span>
+      <span class="brand-item">Braun</span><span class="brand-sep">·</span>
+      <span class="brand-item">Kenwood</span><span class="brand-sep">·</span>
+      <span class="brand-item">Candy</span><span class="brand-sep">·</span>
+    </div>
+  </div>
+
+  <!-- À PROPOS -->
+  <section id="a-propos">
+    <div class="container about-grid">
+      <div>
+        <p class="section-label">Qui sommes-nous</p>
+        <h2 class="section-title">Un spécialiste de confiance depuis plus de 25 ans</h2>
+        <p class="section-desc">
+          Le premier magasin a ouvert ses portes le 1er avril 1994.
+        </p>
+        <p class="section-desc" style="margin-top:1rem;">
+          NSI SARL est une entreprise spécialisée dans la vente d'électroménager et de literie, implantée dans le 9ème arrondissement de Paris. Nous proposons à notre clientèle une sélection de produits de qualité à des prix attractifs, qu'il s'agisse de gros électroménager, de petit électroménager ou d'articles de literie (matelas, sommiers, accessoires de couchage). Notre engagement repose sur un service de proximité, un conseil personnalisé et un rapport qualité-prix soigné, afin d'accompagner chaque client dans l'équipement de son foyer.
+        </p>
+        <div class="about-stats">
+          <div class="stat-box"><div class="stat-num">25<span>+</span></div><div class="stat-label">Années d'expérience</div></div>
+          <div class="stat-box"><div class="stat-num">60<span>+</span></div><div class="stat-label">Clients satisfaits</div></div>
+          <div class="stat-box"><div class="stat-num">50<span>+</span></div><div class="stat-label">Références en stock</div></div>
+        </div>
+      </div>
+      <div class="about-img">
+        <img src="magasin.png" alt="La Centrale Des Affaires — Notre magasin" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"/>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUITS / CATÉGORIES -->
+  <section id="produits">
+    <div class="container">
+      <p class="section-label">Notre catalogue</p>
+      <h2 class="section-title">Tout pour votre intérieur</h2>
+      <p class="section-desc">Des grandes marques, des prix déstockage, livrés ou disponibles en magasin dès aujourd'hui.</p>
+      <div class="cat-grid">
+        <a href="catalogue-cuisson.html" class="cat-card"><div class="cat-icon">🍳</div><div class="cat-name">Cuisson</div></a>
+        <a href="catalogue-lavage-sechage.html" class="cat-card"><div class="cat-icon">🧺</div><div class="cat-name">Lavage &amp; Séchage</div></a>
+        <a href="catalogue-refrigeration.html" class="cat-card"><div class="cat-icon">❄️</div><div class="cat-name">Réfrigération</div></a>
+        <a href="catalogue-tv-hifi.html" class="cat-card"><div class="cat-icon">📺</div><div class="cat-name">TV &amp; Hi-Fi</div></a>
+        <a href="catalogue-literie.html" class="cat-card"><div class="cat-icon">🛏️</div><div class="cat-name">Literie</div></a>
+        <a href="catalogue-aspirateurs.html" class="cat-card"><div class="cat-icon">🧹</div><div class="cat-name">Aspirateurs</div></a>
+        <a href="catalogue-petit-menager.html" class="cat-card"><div class="cat-icon">☕</div><div class="cat-name">Petit ménager</div></a>
+        <a href="catalogue-mobilier.html" class="cat-card"><div class="cat-icon">🪑</div><div class="cat-name">Mobilier</div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTRE MAGASIN -->
+  <section id="nos-magasins">
+    <div class="container">
+      <p class="section-label">Où nous trouver</p>
+      <p class="section-desc">Venez découvrir nos produits et bénéficier des conseils de nos experts sur place.</p>
+      <div class="stores-grid">
+        <div class="store-card">
+          <div class="store-map-placeholder">📍</div>
+          <div class="store-info">
+            <div class="store-name">LaCentraleDesAffaires — Paris-11eme</div>
+            <div class="store-addr">47, Bd de Ménilmontant<br>75011 Paris</div>
+            <div class="store-hours">de Mardi à Samedi</div>
+            <span class="store-badge">✓ Ouvert de 10h à 19h</span>
+          </div>
+           <div class="container">
+      <div class="stores-grid">
+        <div class="store-card">
+          <div class="store-map-placeholder">📍</div>
+          <div class="store-info">
+            <div class="store-name">LaCentraleDesAffaires — Paris-09eme</div>
+            <div class="store-addr">11 rue de Parne<br>75009 Paris</div>
+            <div class="store-hours">Lundi</div>
+            <span class="store-badge">✓ Ouvert de 14h à 19h</span>
+             <div class="store-hours">de Mardi à Samedi</div>
+            <span class="store-badge">✓ Ouvert de 10h à 19h</span>
+        </div>
+      
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Contactez-nous</p>
+      <h2 class="section-title">Une question ? On vous répond.</h2>
+      <div class="contact-grid">
+        <div>
+          <p class="section-desc" style="margin-bottom:2rem;">Notre équipe technique et commerciale est à votre disposition pour toute demande.</p>
+          <div class="contact-perks">
+            <div class="perk">
+              <div class="perk-icon">⚡</div>
+              <div class="perk-text">
+                <h4>Réponse rapide</h4>
+                <p>Plusieurs équipes sur le terrain et par téléphone pour répondre à vos attentes.</p>
+              </div>
+            </div>
+            <div class="perk">
+              <div class="perk-icon">🎓</div>
+              <div class="perk-text">
+                <h4>Équipe d'experts</h4>
+                <p>Conseillers hautement qualifiés pour vous proposer les solutions les plus adaptées.</p>
+              </div>
+            </div>
+            <div class="perk">
+              <div class="perk-icon">🛟</div>
+              <div class="perk-text">
+                <h4>Support client</h4>
+                <p>Une équipe réactive pour vous accompagner avant et après votre achat.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-card">
+          <div class="form-row">
+            <div class="field">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" autocomplete="family-name" placeholder="Dupont"/>
+            </div>
+            <div class="field">
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" autocomplete="given-name" placeholder="Jean"/>
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="jean@exemple.fr"/>
+          </div>
+          <div class="field">
+            <label for="sujet">Sujet</label>
+            <select id="sujet" name="sujet" autocomplete="off">
+              <option>Demande d'information</option>
+              <option>Demande de devis</option>
+              <option>Service après-vente</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" autocomplete="off" placeholder="Décrivez votre demande…"></textarea>
+          </div>
+          <p class="form-consent">En soumettant ce formulaire, j'accepte que les informations saisies soient utilisées pour traiter ma demande par e-mail ou téléphone.</p>
+          <button type="submit" class="form-submit">Envoyer le message →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">LaCentraleDes<span>Affaires.com</span></div>
+        <p class="footer-desc">Spécialistes de l'électroménager, nos magasins vous proposent aussi petit ménager, gros électroménager, TV &amp; literie — depuis 1994.</p>
+        <div class="socials" style="margin-top:1.2rem;">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">ig</a>
+          <a href="#" title="Twitter">tw</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#a-propos">À propos</a></li>
+          <li><a href="#produits">Produits</a></li>
+          <li><a href="#nos-magasins">Nos magasins</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Légal</h4>
+          <li><a href="politique-cookies.html">Cookies</a> </li>
+          <li><a href="politique-confidentialite.html">Confidentialité</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">📧 nsisarl@hotmail.com</div>
+        <div class="footer-contact-item">📞 01 43 79 22 35</div>
+        <div class="footer-contact-item">📍 47, Bd de Ménilmontant<br>&nbsp;&nbsp;&nbsp;&nbsp;75011 Paris</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© LaCentraleDesAffaires 2026. Tous droits réservés.</span>
+      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a> · <a href="politique-cookies.html">Cookies</a> · <a href="politique-confidentialite.html">Confidentialité</a></span>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <a href="#" class="back-top" id="backTop" aria-label="Retour en haut">↑</a>
+
+  <script>
+    // Menu hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Fermer menu au clic sur un lien
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => navLinks.classList.remove('open'))
+    );
+
+    // Back to top
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Formulaire (démo)
+    document.querySelector('.form-submit').addEventListener('click', () => {
+      const nom = document.getElementById('nom').value;
+      if (!nom) { alert('Merci de renseigner votre nom.'); return; }
+      alert('Merci ' + nom + ' ! Votre message a bien été envoyé.');
+    });
+
+    // Bandeau cookies
+    (function() {
+      const banner = document.getElementById('cookieBanner');
+      if (localStorage.getItem('cda_cookie_consent')) banner.classList.add('hidden');
+      document.getElementById('btnAccept').addEventListener('click', () => {
+        localStorage.setItem('cda_cookie_consent', 'accepted');
+        banner.classList.add('hidden');
+      });
+      document.getElementById('btnRefuse').addEventListener('click', () => {
+        localStorage.setItem('cda_cookie_consent', 'refused');
+        banner.classList.add('hidden');
+      });
+    })();
+  </script>
+</body>
+</html>

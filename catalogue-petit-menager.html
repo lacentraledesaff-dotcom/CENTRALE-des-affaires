@@ -1,0 +1,210 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Petit Ménager | La Centrale Des Affaires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#180595;--accent:#e7cb2f;--light:#f5f7fa;--white:#fff;--gray:#6b7280;--border:#e2e8f0;--radius:10px}
+body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--white);line-height:1.5}
+nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;box-shadow:0 2px 8px rgba(0,0,0,.06);gap:1rem;flex-wrap:wrap}
+.logo{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--navy);text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.nav-right{display:flex;gap:1rem;align-items:center}
+.back-link{text-decoration:none;color:var(--navy);font-weight:600;font-size:.9rem;border:1px solid var(--border);padding:.5rem 1.1rem;border-radius:8px;transition:.2s}
+.back-link:hover{border-color:var(--accent);color:var(--accent)}
+.hero{background:linear-gradient(135deg,var(--navy),#2713bc);color:#fff;padding:3.5rem 2rem;text-align:center}
+.hero .icon{font-size:3.5rem;margin-bottom:.5rem;display:block}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:.6rem}
+.hero p{font-size:1rem;opacity:.85;max-width:600px;margin:0 auto}
+.crumbs{max-width:1100px;margin:0 auto;padding:1.2rem 2rem 0;font-size:.85rem;color:var(--gray)}
+.crumbs a{color:var(--navy);text-decoration:none;font-weight:600}
+.crumbs a:hover{color:var(--accent)}
+.grid-wrap{max-width:1100px;margin:0 auto;padding:1.5rem 2rem 3rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.2rem}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(24,5,149,.12)}
+.card-img{background:var(--light);font-size:3.2rem;padding:2rem;text-align:center}
+.card-body{padding:1rem 1.1rem 1.1rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.card-brand{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);font-weight:600}
+.card-name{font-size:.95rem;font-weight:600;color:var(--navy);min-height:2.6em}
+.card-bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:.6rem;border-top:1px solid var(--border)}
+.card-price{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;color:var(--accent)}
+.card-btn{background:var(--navy);color:#fff;border:none;padding:.45rem .9rem;border-radius:6px;font-weight:600;font-size:.82rem;cursor:pointer;font-family:inherit;transition:opacity .2s}
+.card-btn:hover{opacity:.85}
+.cta-bar{background:var(--light);padding:2.2rem 2rem;text-align:center;border-top:1px solid var(--border)}
+.cta-bar h2{font-family:'Syne',sans-serif;font-size:1.4rem;margin-bottom:.4rem}
+.cta-bar p{color:var(--gray);margin-bottom:1.2rem;font-size:.95rem}
+.cta-btn{display:inline-block;background:var(--accent);color:var(--navy);padding:.8rem 1.6rem;border-radius:8px;text-decoration:none;font-weight:700}
+.others{max-width:1100px;margin:0 auto;padding:2.5rem 2rem}
+.others h3{font-family:'Syne',sans-serif;font-size:1.1rem;margin-bottom:1rem}
+.oc-grid{display:flex;flex-wrap:wrap;gap:.7rem}
+.oc{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1rem;background:#fff;border:1px solid var(--border);border-radius:999px;text-decoration:none;color:var(--navy);font-weight:600;font-size:.88rem;transition:.2s}
+.oc:hover{border-color:var(--accent);color:var(--accent)}
+footer{background:var(--navy);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem}
+footer a{color:#94a3b8;text-decoration:none}
+footer a:hover{color:#fff}</style></head><body>
+<nav>
+  <a href="index.html" class="logo">La Centrale Des<span> Affaires</span></a>
+  <div class="nav-right">
+    <a href="panier.html" style="position:relative;text-decoration:none;color:var(--navy);font-weight:600;display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--border);padding:.5rem 1rem;border-radius:8px;transition:.2s" onmouseover="this.style.borderColor='#e7cb2f'" onmouseout="this.style.borderColor='var(--border)'">🛒 Panier<span data-cart-count style="display:none;background:#e7cb2f;color:#180595;font-size:.7rem;font-weight:700;min-width:18px;height:18px;border-radius:9px;align-items:center;justify-content:center;padding:0 5px">0</span></a>
+    <a href="index.html" class="back-link">← Accueil</a>
+  </div>
+</nav>
+<section class="hero">
+  <span class="icon">☕</span>
+  <h1>Petit Ménager</h1>
+  <p>Cafetières, mixeurs, grille-pain et tous les petits appareils du quotidien.</p>
+</section>
+<div class="crumbs"><a href="index.html">Accueil</a> › <a href="index.html#produits">Catalogue</a> › <strong>Petit Ménager</strong></div>
+<div class="grid-wrap"><div class="grid">
+    <article class="card">
+      <div class="card-img">☕</div>
+      <div class="card-body">
+        <p class="card-brand">De'Longhi</p>
+        <h3 class="card-name">Cafetière expresso</h3>
+        <div class="card-bottom">
+          <span class="card-price">149 €</span>
+          <a href="produit-petit-menager-0.html" class="card-btn" style="text-decoration:none;display:inline-block;text-align:center">Voir</a> <button class="card-btn" onclick="LCDA.add({id:'petit-menager-0',name:'Cafetière expresso',brand:'De\'Longhi',price:'149 €',emoji:'☕'})">Ajouter</button>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-img">🥣</div>
+      <div class="card-body">
+        <p class="card-brand">Kenwood</p>
+        <h3 class="card-name">Robot cuisine multifonction</h3>
+        <div class="card-bottom">
+          <span class="card-price">299 €</span>
+          <a href="produit-petit-menager-1.html" class="card-btn" style="text-decoration:none;display:inline-block;text-align:center">Voir</a> <button class="card-btn" onclick="LCDA.add({id:'petit-menager-1',name:'Robot cuisine multifonction',brand:'Kenwood',price:'299 €',emoji:'🥣'})">Ajouter</button>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-img">🍞</div>
+      <div class="card-body">
+        <p class="card-brand">Braun</p>
+        <h3 class="card-name">Grille-pain 2 fentes</h3>
+        <div class="card-bottom">
+          <span class="card-price">49 €</span>
+          <a href="produit-petit-menager-2.html" class="card-btn" style="text-decoration:none;display:inline-block;text-align:center">Voir</a> <button class="card-btn" onclick="LCDA.add({id:'petit-menager-2',name:'Grille-pain 2 fentes',brand:'Braun',price:'49 €',emoji:'🍞'})">Ajouter</button>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-img">🥤</div>
+      <div class="card-body">
+        <p class="card-brand">Moulinex</p>
+        <h3 class="card-name">Mixeur plongeant</h3>
+        <div class="card-bottom">
+          <span class="card-price">39 €</span>
+          <a href="produit-petit-menager-3.html" class="card-btn" style="text-decoration:none;display:inline-block;text-align:center">Voir</a> <button class="card-btn" onclick="LCDA.add({id:'petit-menager-3',name:'Mixeur plongeant',brand:'Moulinex',price:'39 €',emoji:'🥤'})">Ajouter</button>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-img">🫖</div>
+      <div class="card-body">
+        <p class="card-brand">Rowenta</p>
+        <h3 class="card-name">Bouilloire inox 1.7L</h3>
+        <div class="card-bottom">
+          <span class="card-price">35 €</span>
+          <a href="produit-petit-menager-4.html" class="card-btn" style="text-decoration:none;display:inline-block;text-align:center">Voir</a> <button class="card-btn" onclick="LCDA.add({id:'petit-menager-4',name:'Bouilloire inox 1.7L',brand:'Rowenta',price:'35 €',emoji:'🫖'})">Ajouter</button>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-img">🍟</div>
+      <div class="card-body">
+        <p class="card-brand">Tefal</p>
+        <h3 class="card-name">Friteuse sans huile</h3>
+        <div class="card-bottom">
+          <span class="card-price">99 €</span>
+          <a href="produit-petit-menager-5.html" class="card-btn" style="text-decoration:none;display:inline-block;text-align:center">Voir</a> <button class="card-btn" onclick="LCDA.add({id:'petit-menager-5',name:'Friteuse sans huile',brand:'Tefal',price:'99 €',emoji:'🍟'})">Ajouter</button>
+        </div>
+      </div>
+    </article></div></div>
+<section class="cta-bar">
+  <h2>Une question sur un produit ?</h2>
+  <p>Notre équipe vous renseigne en magasin ou par téléphone au 01 43 79 22 35.</p>
+  <a href="index.html#contact" class="cta-btn">Nous contacter</a>
+</section>
+<section class="others">
+  <h3>Autres catégories</h3>
+  <div class="oc-grid"><a href="catalogue-cuisson.html" class="oc"><span>🍳</span>Cuisson</a><a href="catalogue-lavage-sechage.html" class="oc"><span>🧺</span>Lavage & Séchage</a><a href="catalogue-refrigeration.html" class="oc"><span>❄️</span>Réfrigération</a><a href="catalogue-tv-hifi.html" class="oc"><span>📺</span>TV & Hi-Fi</a><a href="catalogue-literie.html" class="oc"><span>🛏️</span>Literie</a><a href="catalogue-aspirateurs.html" class="oc"><span>🧹</span>Aspirateurs</a><a href="catalogue-mobilier.html" class="oc"><span>🪑</span>Mobilier</a></div>
+</section>
+<footer>© La Centrale Des Affaires 2026 — <a href="index.html">Accueil</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a> · <a href="politique-confidentialite.html">Confidentialité</a> · <a href="politique-cookies.html">Cookies</a></footer>
+
+<script>
+(function(){
+  const KEY='lcda_cart';
+  window.LCDA = window.LCDA || {};
+  function read(){ try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []} }
+  function write(c){ localStorage.setItem(KEY, JSON.stringify(c)); updateBadge(); }
+  function updateBadge(){
+    const n = read().reduce((s,i)=>s+i.qty,0);
+    document.querySelectorAll('[data-cart-count]').forEach(el=>{
+      el.textContent = n;
+      el.style.display = n>0 ? 'inline-flex' : 'none';
+    });
+  }
+  LCDA.add = function(p){
+    const c = read();
+    const ex = c.find(i=>i.id===p.id);
+    if(ex) ex.qty++; else c.push({...p, qty:1});
+    write(c);
+    showToast('✓ Ajouté au panier : '+p.name);
+  };
+  LCDA.remove = function(id){ write(read().filter(i=>i.id!==id)); render(); };
+  LCDA.setQty = function(id, q){
+    const c = read();
+    const it = c.find(i=>i.id===id);
+    if(!it) return;
+    it.qty = Math.max(1, parseInt(q)||1);
+    write(c); render();
+  };
+  LCDA.read = read;
+  LCDA.clear = function(){ write([]); };
+  function showToast(msg){
+    let t = document.getElementById('lcda-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.id='lcda-toast';
+      t.style.cssText='position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#180595;color:#fff;padding:.8rem 1.4rem;border-radius:8px;font-family:Inter,sans-serif;font-size:.9rem;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:9999;opacity:0;transition:opacity .25s;white-space:nowrap';
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.style.opacity='1';
+    clearTimeout(t._h);
+    t._h = setTimeout(()=>{ t.style.opacity='0'; }, 2200);
+  }
+  function render(){
+    const wrap = document.getElementById('cart-content');
+    if(!wrap) return;
+    const c = read();
+    if(c.length===0){
+      wrap.innerHTML='<div class="empty"><p style="font-size:3rem;margin-bottom:.5rem">🛒</p><h2>Votre panier est vide</h2><p style="color:#6b7280;margin:.5rem 0 1.5rem">Découvrez nos produits.</p><a href="index.html#produits" class="btn-primary">Voir le catalogue</a></div>';
+      document.getElementById('cart-footer').style.display='none';
+      return;
+    }
+    let total = 0;
+    wrap.innerHTML = '<table class="cart-tbl"><thead><tr><th>Produit</th><th>Prix</th><th>Quantité</th><th>Total</th><th></th></tr></thead><tbody>' +
+      c.map(i=>{
+        const price = parseFloat(String(i.price).replace(/[^0-9.,]/g,'').replace(',','.')) || 0;
+        const sub = price * i.qty; total += sub;
+        return '<tr>'+
+          '<td><div class="pcell"><span class="pemoji">'+i.emoji+'</span><div><p class="pbrand">'+i.brand+'</p><p class="pname">'+i.name+'</p></div></div></td>'+
+          '<td>'+i.price+'</td>'+
+          '<td><input type="number" min="1" value="'+i.qty+'" onchange="LCDA.setQty(\''+i.id+'\', this.value)" class="qty"/></td>'+
+          '<td class="ptotal">'+sub.toFixed(2)+' €</td>'+
+          '<td><button class="rm" onclick="LCDA.remove(\''+i.id+'\')">✕</button></td>'+
+        '</tr>';
+      }).join('') + '</tbody></table>';
+    document.getElementById('cart-footer').style.display='block';
+    document.getElementById('cart-total').textContent = total.toFixed(2)+' €';
+  }
+  LCDA.render = render;
+  document.addEventListener('DOMContentLoaded', function(){ updateBadge(); render(); });
+})();
+</script>
+
+</body></html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Commande | La Centrale Des Affaires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#180595;--accent:#e7cb2f;--light:#f5f7fa;--white:#fff;--gray:#6b7280;--border:#e2e8f0;--radius:10px}
+body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--light);line-height:1.5;min-height:100vh}
+nav{background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;gap:1rem;flex-wrap:wrap}
+.logo{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--navy);text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.wrap{max-width:1100px;margin:0 auto;padding:2.5rem 2rem 4rem;display:grid;grid-template-columns:1fr 380px;gap:2rem}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}}
+h1{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;margin-bottom:1.5rem}
+.card{background:#fff;border-radius:var(--radius);padding:1.8rem;border:1px solid var(--border);margin-bottom:1.2rem}
+.card h2{font-family:'Syne',sans-serif;font-size:1.1rem;margin-bottom:1.2rem;display:flex;align-items:center;gap:.6rem}
+.card h2 .num{background:var(--navy);color:#fff;width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.85rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem}
+.row.full{grid-template-columns:1fr}
+@media(max-width:600px){.row{grid-template-columns:1fr}}
+label{display:block;font-size:.78rem;font-weight:600;color:var(--gray);margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.05em}
+input,select{width:100%;padding:.7rem .85rem;border:1px solid var(--border);border-radius:8px;font:inherit;color:var(--navy);background:#fff}
+input:focus,select:focus{outline:none;border-color:var(--navy)}
+.summary{background:#fff;border-radius:var(--radius);padding:1.8rem;border:1px solid var(--border);position:sticky;top:1rem;align-self:start}
+.summary h2{font-family:'Syne',sans-serif;font-size:1.1rem;margin-bottom:1.2rem}
+.sum-items{margin-bottom:1.2rem;max-height:280px;overflow:auto}
+.sum-item{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.88rem;gap:.5rem}
+.sum-item:last-child{border-bottom:none}
+.sum-item .nm{flex:1;color:var(--navy);font-weight:500}
+.sum-item .qt{color:var(--gray);font-size:.78rem}
+.sum-item .pr{font-weight:600}
+.sum-totals{border-top:2px solid var(--border);padding-top:1rem;font-size:.9rem}
+.sum-totals .lr{display:flex;justify-content:space-between;margin-bottom:.5rem;color:var(--gray)}
+.sum-totals .lr.grand{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--navy);margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--border)}
+.btn-pay{width:100%;background:var(--navy);color:#fff;border:none;padding:1rem;border-radius:8px;font:inherit;font-weight:700;font-size:1rem;cursor:pointer;margin-top:1.2rem;transition:opacity .2s;display:flex;align-items:center;justify-content:center;gap:.6rem}
+.btn-pay:hover{opacity:.9}
+.btn-pay:disabled{opacity:.5;cursor:not-allowed}
+.btn-pay .spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
+.btn-pay.loading .spinner{display:inline-block}
+.btn-pay.loading .btn-label{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.lock{font-size:.78rem;color:var(--gray);text-align:center;margin-top:.7rem}
+.payplug-badge{display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.5rem;font-size:.75rem;color:var(--gray)}
+.error-msg{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:.8rem 1rem;color:#dc2626;font-size:.88rem;margin-top:1rem;display:none}
+.select-ship{margin-bottom:.9rem}
+.empty-checkout{background:#fff;border-radius:var(--radius);padding:3rem;text-align:center;grid-column:1/-1}
+</style></head><body>
+<nav>
+  <a href="index.html" class="logo">La Centrale Des<span> Affaires</span></a>
+  <a href="panier.html" style="text-decoration:none;color:var(--navy);font-weight:600;border:1px solid var(--border);padding:.5rem 1rem;border-radius:8px">🛒 Panier</a>
+</nav>
+
+<div class="wrap" id="checkout-area">
+  <div>
+    <h1>Finaliser ma commande</h1>
+    <form id="checkout-form">
+      <div class="card">
+        <h2><span class="num">1</span> Coordonnées</h2>
+        <div class="row">
+          <div><label>Prénom</label><input required name="firstname" autocomplete="given-name" id="f-firstname"/></div>
+          <div><label>Nom</label><input required name="lastname" autocomplete="family-name" id="f-lastname"/></div>
+        </div>
+        <div class="row">
+          <div><label>Email</label><input required type="email" name="email" autocomplete="email" id="f-email"/></div>
+          <div><label>Téléphone</label><input required type="tel" name="phone" autocomplete="tel" id="f-phone"/></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2><span class="num">2</span> Livraison</h2>
+        <div class="row full"><div><label>Adresse</label><input required name="address" autocomplete="street-address"/></div></div>
+        <div class="row">
+          <div><label>Code postal</label><input required name="zip" pattern="[0-9]{5}" autocomplete="postal-code"/></div>
+          <div><label>Ville</label><input required name="city" autocomplete="address-level2"/></div>
+        </div>
+        <div class="select-ship">
+          <label>Mode de livraison</label>
+          <select name="shipping" id="shipping" onchange="updateTotals()">
+            <option value="0">Retrait en magasin — Gratuit</option>
+            <option value="29">Livraison standard (5-7j) — 29 €</option>
+            <option value="59">Livraison express (24-48h) — 59 €</option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <aside class="summary">
+    <h2>Récapitulatif</h2>
+    <div class="sum-items" id="sum-items"></div>
+    <div class="sum-totals">
+      <div class="lr"><span>Sous-total</span><span id="t-sub">0 €</span></div>
+      <div class="lr"><span>Livraison</span><span id="t-ship">Gratuit</span></div>
+      <div class="lr"><span>TVA (incluse)</span><span id="t-tva">0 €</span></div>
+      <div class="lr grand"><span>Total</span><span id="t-grand">0 €</span></div>
+    </div>
+    <button type="button" class="btn-pay" id="pay-btn" onclick="submitOrder()">
+      <span class="btn-label">🔒 Payer avec Payplug</span>
+      <span class="spinner"></span>
+    </button>
+    <p class="lock">Paiement 100% sécurisé — Payplug 🇫🇷</p>
+    <div class="payplug-badge">🔐 Cryptage SSL · CB · Visa · Mastercard</div>
+    <div class="error-msg" id="error-msg"></div>
+  </aside>
+</div>
+
+<script>
+function readCart(){ try{return JSON.parse(localStorage.getItem('lcda_cart')||'[]')}catch(e){return[]} }
+function priceNum(p){ return parseFloat(String(p).replace(/[^0-9.,]/g,'').replace(',','.'))||0; }
+
+function updateTotals(){
+  const c = readCart(); let sub = 0;
+  c.forEach(i => sub += priceNum(i.price) * i.qty);
+  const ship = parseFloat(document.getElementById('shipping').value)||0;
+  const grand = sub + ship, tva = grand - (grand/1.2);
+  document.getElementById('t-sub').textContent = sub.toFixed(2)+' €';
+  document.getElementById('t-ship').textContent = ship===0 ? 'Gratuit' : ship.toFixed(2)+' €';
+  document.getElementById('t-tva').textContent = tva.toFixed(2)+' €';
+  document.getElementById('t-grand').textContent = grand.toFixed(2)+' €';
+}
+
+function renderItems(){
+  const c = readCart();
+  const wrap = document.getElementById('sum-items');
+  const area = document.getElementById('checkout-area');
+  if(c.length===0){
+    area.innerHTML='<div class="empty-checkout"><p style="font-size:3rem;margin-bottom:.5rem">🛒</p><h2 style="font-family:Syne,sans-serif;margin-bottom:.5rem">Votre panier est vide</h2><p style="color:#6b7280;margin-bottom:1.5rem">Ajoutez des produits avant de commander.</p><a href="index.html#produits" style="background:#e7cb2f;color:#180595;padding:.8rem 1.6rem;border-radius:8px;text-decoration:none;font-weight:700">Voir le catalogue</a></div>';
+    return;
+  }
+  wrap.innerHTML = c.map(i =>
+    '<div class="sum-item"><div class="nm">'+i.emoji+' '+i.name+' <span class="qt">×'+i.qty+'</span></div><span class="pr">'+(priceNum(i.price)*i.qty).toFixed(2)+' €</span></div>'
+  ).join('');
+  updateTotals();
+}
+
+async function submitOrder(){
+  const form = document.getElementById('checkout-form');
+  if(!form.checkValidity()){ form.reportValidity(); return; }
+
+  const c = readCart();
+  if(c.length===0){ alert('Votre panier est vide !'); return; }
+
+  const btn = document.getElementById('pay-btn');
+  const errEl = document.getElementById('error-msg');
+  errEl.style.display = 'none';
+  btn.disabled = true;
+  btn.classList.add('loading');
+
+  // Calculer le montant total en centimes
+  let sub = 0;
+  c.forEach(i => sub += priceNum(i.price) * i.qty);
+  const ship = parseFloat(document.getElementById('shipping').value)||0;
+  const totalCentimes = Math.round((sub + ship) * 100);
+
+  try {
+    const res = await fetch('/functions/create-payment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: totalCentimes,
+        currency: 'EUR',
+        email: document.getElementById('f-email').value,
+        firstname: document.getElementById('f-firstname').value,
+        lastname: document.getElementById('f-lastname').value,
+        items: c.map(i => ({ name: i.name, qty: i.qty })),
+      }),
+    });
+
+    const data = await res.json();
+
+    if(!res.ok || !data.payment_url){
+      throw new Error(data.error || 'Erreur lors de la création du paiement');
+    }
+
+    // Rediriger vers la page de paiement Payplug
+    window.location.href = data.payment_url;
+
+  } catch(err) {
+    errEl.textContent = '❌ ' + err.message;
+    errEl.style.display = 'block';
+    btn.disabled = false;
+    btn.classList.remove('loading');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', renderItems);
+</script>
+</body></html>

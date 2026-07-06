@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Administration | La Centrale Des Affaires</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#180595;--accent:#e7cb2f;--light:#f5f7fa;--white:#fff;--gray:#6b7280;--border:#e2e8f0;--radius:10px}
+body{font-family:'Inter',sans-serif;background:var(--light);min-height:100vh;display:flex;flex-direction:column}
+#login-screen{position:fixed;inset:0;background:var(--navy);display:flex;align-items:center;justify-content:center;z-index:999}
+.login-box{background:#fff;border-radius:16px;padding:2.5rem;width:100%;max-width:380px;text-align:center}
+.login-logo{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--navy);margin-bottom:1.5rem}
+.login-logo span{color:var(--accent)}
+.login-box h2{font-family:'Syne',sans-serif;font-size:1.5rem;margin-bottom:.5rem}
+.login-box p{color:var(--gray);font-size:.9rem;margin-bottom:1.5rem}
+.login-input{width:100%;padding:.8rem 1rem;border:1px solid var(--border);border-radius:8px;font:inherit;font-size:1.2rem;margin-bottom:1rem;text-align:center;letter-spacing:.2em}
+.login-btn{width:100%;background:var(--navy);color:#fff;border:none;padding:.9rem;border-radius:8px;font:inherit;font-weight:700;font-size:1rem;cursor:pointer}
+.login-err{color:#dc2626;font-size:.85rem;margin-top:.5rem;display:none}
+header{background:var(--navy);color:#fff;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.admin-logo{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800}
+.admin-logo span{color:var(--accent)}
+.header-right{display:flex;align-items:center;gap:1rem}
+.btn-site{background:var(--accent);color:var(--navy);padding:.4rem 1rem;border-radius:6px;text-decoration:none;font-weight:700;font-size:.85rem}
+.btn-logout{background:rgba(255,255,255,.1);color:#fff;border:none;padding:.4rem 1rem;border-radius:6px;cursor:pointer;font:inherit;font-size:.85rem}
+.dashboard{max-width:1100px;margin:0 auto;padding:2rem;flex:1}
+.welcome{margin-bottom:2rem}
+.welcome h1{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--navy)}
+.welcome p{color:var(--gray);margin-top:.3rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;margin-bottom:2.5rem}
+.admin-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;display:block}
+.admin-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(24,5,149,.1)}
+.card-icon{font-size:2.5rem;margin-bottom:.8rem;display:block}
+.card-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+.card-desc{font-size:.88rem;color:var(--gray);line-height:1.5}
+.card-action{display:inline-block;margin-top:.8rem;background:var(--navy);color:#fff;padding:.4rem 1rem;border-radius:6px;font-size:.82rem;font-weight:600}
+.card-accent .card-action{background:var(--accent);color:var(--navy)}
+.pwd-section{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:2rem}
+.pwd-section h3{font-family:'Syne',sans-serif;font-size:1rem;margin-bottom:1rem;color:var(--navy)}
+.pwd-row{display:flex;gap:.8rem;flex-wrap:wrap}
+.pwd-input{flex:1;padding:.7rem 1rem;border:1px solid var(--border);border-radius:8px;font:inherit;min-width:200px}
+.pwd-btn{background:var(--navy);color:#fff;border:none;padding:.7rem 1.4rem;border-radius:8px;font:inherit;font-weight:600;cursor:pointer}
+.pwd-ok{color:#15803d;font-size:.85rem;margin-top:.5rem;display:none}
+footer{background:var(--navy);color:#94a3b8;text-align:center;padding:1rem;font-size:.8rem;margin-top:auto}
+</style>
+</head>
+<body>
+
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">La Centrale<span> Des Affaires</span></div>
+    <h2>Administration</h2>
+    <p>Entrez le mot de passe pour accéder au panneau</p>
+    <input type="password" class="login-input" id="pwd-input" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()"/>
+    <button class="login-btn" onclick="login()">Se connecter</button>
+    <p class="login-err" id="login-err">❌ Mot de passe incorrect</p>
+  </div>
+</div>
+
+<header>
+  <div class="admin-logo">⚙️ La Centrale<span> Des Affaires</span> — Admin</div>
+  <div class="header-right">
+    <a href="/" class="btn-site" target="_blank">🌐 Voir le site</a>
+    <button class="btn-logout" onclick="logout()">Déconnexion</button>
+  </div>
+</header>
+
+<div class="dashboard">
+  <div class="welcome">
+    <h1>👋 Bonjour !</h1>
+    <p>Gérez votre site, vos produits et vos commandes depuis ce panneau.</p>
+  </div>
+
+  <!-- Changer mot de passe -->
+  <div class="pwd-section">
+    <h3>🔐 Changer le mot de passe administrateur</h3>
+    <div class="pwd-row">
+      <input type="password" class="pwd-input" id="new-pwd" placeholder="Nouveau mot de passe"/>
+      <input type="password" class="pwd-input" id="new-pwd2" placeholder="Confirmer le mot de passe"/>
+      <button class="pwd-btn" onclick="changePwd()">Changer</button>
+    </div>
+    <p class="pwd-ok" id="pwd-ok">✅ Mot de passe changé avec succès !</p>
+  </div>
+
+  <!-- Actions principales -->
+  <div class="cards">
+    <a href="https://VOTRE_PROJECT_ID.sanity.studio" target="_blank" class="admin-card card-accent">
+      <span class="card-icon">📦</span>
+      <div class="card-title">Gérer les produits</div>
+      <div class="card-desc">Ajouter, modifier, supprimer des produits. Changer les prix, photos, descriptions et stocks.</div>
+      <span class="card-action">Ouvrir Sanity →</span>
+    </a>
+    <a href="https://VOTRE_PROJECT_ID.sanity.studio" target="_blank" class="admin-card">
+      <span class="card-icon">⚙️</span>
+      <div class="card-title">Paramètres du site</div>
+      <div class="card-desc">Modifier les textes, la photo du magasin, les horaires, les coordonnées.</div>
+      <span class="card-action">Modifier →</span>
+    </a>
+    <a href="https://app.payplug.com" target="_blank" class="admin-card">
+      <span class="card-icon">💳</span>
+      <div class="card-title">Paiements Payplug</div>
+      <div class="card-desc">Voir les paiements reçus, les remboursements et les statistiques de vente.</div>
+      <span class="card-action">Ouvrir Payplug →</span>
+    </a>
+    <a href="https://dash.cloudflare.com" target="_blank" class="admin-card">
+      <span class="card-icon">☁️</span>
+      <div class="card-title">Cloudflare</div>
+      <div class="card-desc">Gérer l'hébergement, les déploiements et le domaine lacentraledesaffaires.fr</div>
+      <span class="card-action">Ouvrir Cloudflare →</span>
+    </a>
+    <a href="https://sanity.io/manage" target="_blank" class="admin-card">
+      <span class="card-icon">🎛️</span>
+      <div class="card-title">Sanity Dashboard</div>
+      <div class="card-desc">Gérer le projet Sanity, les utilisateurs et les permissions d'accès.</div>
+      <span class="card-action">Ouvrir →</span>
+    </a>
+    <a href="https://github.com" target="_blank" class="admin-card">
+      <span class="card-icon">🐙</span>
+      <div class="card-title">GitHub</div>
+      <div class="card-desc">Accéder au code source du site pour les modifications avancées.</div>
+      <span class="card-action">Ouvrir GitHub →</span>
+    </a>
+  </div>
+</div>
+
+<footer>La Centrale Des Affaires — Administration © 2026</footer>
+
+<script>
+// Mot de passe stocké localement (chiffré en base64)
+const DEFAULT_PWD = btoa('lcda2026');
+
+function getStoredPwd() {
+  return localStorage.getItem('lcda_admin_pwd') || DEFAULT_PWD;
+}
+
+function login() {
+  const input = document.getElementById('pwd-input').value;
+  const stored = atob(getStoredPwd());
+  if (input === stored) {
+    sessionStorage.setItem('lcda_admin', 'ok');
+    document.getElementById('login-screen').style.display = 'none';
+  } else {
+    document.getElementById('login-err').style.display = 'block';
+    document.getElementById('pwd-input').value = '';
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem('lcda_admin');
+  location.reload();
+}
+
+function changePwd() {
+  const p1 = document.getElementById('new-pwd').value;
+  const p2 = document.getElementById('new-pwd2').value;
+  if (!p1) { alert('Entrez un mot de passe'); return; }
+  if (p1 !== p2) { alert('Les mots de passe ne correspondent pas'); return; }
+  if (p1.length < 6) { alert('Mot de passe trop court (min 6 caractères)'); return; }
+  localStorage.setItem('lcda_admin_pwd', btoa(p1));
+  document.getElementById('pwd-ok').style.display = 'block';
+  document.getElementById('new-pwd').value = '';
+  document.getElementById('new-pwd2').value = '';
+  setTimeout(() => document.getElementById('pwd-ok').style.display = 'none', 3000);
+}
+
+// Vérifier si déjà connecté
+if (sessionStorage.getItem('lcda_admin') === 'ok') {
+  document.getElementById('login-screen').style.display = 'none';
+}
+</script>
+</body>
+</html>

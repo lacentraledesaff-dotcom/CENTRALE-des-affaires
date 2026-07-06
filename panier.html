@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mon panier | La Centrale Des Affaires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#180595;--accent:#e7cb2f;--light:#f5f7fa;--white:#fff;--gray:#6b7280;--border:#e2e8f0;--radius:10px}
+body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--white);line-height:1.5}
+nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;box-shadow:0 2px 8px rgba(0,0,0,.06);gap:1rem;flex-wrap:wrap}
+.logo{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--navy);text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.nav-right{display:flex;gap:1rem;align-items:center}
+.back-link{text-decoration:none;color:var(--navy);font-weight:600;font-size:.9rem;border:1px solid var(--border);padding:.5rem 1.1rem;border-radius:8px;transition:.2s}
+.back-link:hover{border-color:var(--accent);color:var(--accent)}
+.wrap{max-width:1000px;margin:0 auto;padding:2.5rem 2rem 4rem}
+h1{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;margin-bottom:.4rem}
+.sub{color:var(--gray);margin-bottom:2rem;font-size:.95rem}
+.empty{text-align:center;padding:4rem 1rem;background:var(--light);border-radius:var(--radius)}
+.empty h2{font-family:'Syne',sans-serif;font-size:1.4rem;margin-bottom:.5rem}
+.empty p{color:var(--gray);margin-bottom:1.5rem}
+.btn-primary{display:inline-block;background:var(--accent);color:var(--navy);padding:.8rem 1.6rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:.95rem}
+.cart-tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.cart-tbl th{background:var(--light);text-align:left;padding:.9rem 1rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);font-weight:700;border-bottom:1px solid var(--border)}
+.cart-tbl td{padding:1rem;border-bottom:1px solid var(--border);vertical-align:middle;font-size:.92rem}
+.cart-tbl tr:last-child td{border-bottom:none}
+.pcell{display:flex;gap:.9rem;align-items:center}
+.pemoji{font-size:2rem;background:var(--light);width:54px;height:54px;display:flex;align-items:center;justify-content:center;border-radius:8px;flex-shrink:0}
+.pbrand{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);font-weight:600}
+.pname{font-weight:600;color:var(--navy)}
+.qty{width:60px;padding:.4rem .5rem;border:1px solid var(--border);border-radius:6px;font:inherit;text-align:center}
+.ptotal{font-weight:700;color:var(--navy)}
+.rm{background:none;border:none;color:#9ca3af;font-size:1.1rem;cursor:pointer;padding:.3rem .5rem;border-radius:4px;transition:.2s}
+.rm:hover{background:#fee2e2;color:#dc2626}
+#cart-footer{margin-top:1.5rem;background:var(--light);border-radius:var(--radius);padding:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.total-row .lbl{font-size:.85rem;color:var(--gray);font-weight:600;display:block}
+.total-row .val{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--navy)}
+.actions{display:flex;gap:.7rem;flex-wrap:wrap}
+.btn-outline{background:#fff;color:var(--navy);border:1px solid var(--border);padding:.8rem 1.4rem;border-radius:8px;font-weight:600;font-size:.9rem;cursor:pointer;font-family:inherit}
+.btn-outline:hover{border-color:var(--navy)}
+footer{background:var(--navy);color:#94a3b8;text-align:center;padding:1.5rem;font-size:.85rem}
+footer a{color:#94a3b8;text-decoration:none}
+footer a:hover{color:#fff}
+@media(max-width:700px){.cart-tbl thead{display:none}.cart-tbl td{display:block;padding:.5rem 1rem}.cart-tbl tr{display:block;padding:.5rem 0;border-bottom:1px solid var(--border)}}
+</style></head><body>
+<nav>
+  <a href="index.html" class="logo">La Centrale Des<span> Affaires</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="back-link">← Continuer mes achats</a>
+  </div>
+</nav>
+<div class="wrap">
+  <h1>🛒 Mon panier</h1>
+  <p class="sub">Vérifiez vos articles avant de passer à la commande.</p>
+  <div id="cart-content"></div>
+  <div id="cart-footer" style="display:none">
+    <div class="total-row">
+      <span class="lbl">Total TTC</span>
+      <span class="val" id="cart-total">0 €</span>
+    </div>
+    <div class="actions">
+      <button class="btn-outline" onclick="if(confirm('Vider le panier ?')){LCDA.clear();render();}">🗑 Vider</button>
+      <a href="checkout.html" class="btn-primary">Passer commande →</a>
+    </div>
+  </div>
+</div>
+<footer>© La Centrale Des Affaires 2026 — <a href="index.html">Accueil</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="cgv.html">CGV</a> · <a href="politique-confidentialite.html">Confidentialité</a></footer>
+<script>
+const KEY = 'lcda_cart';
+window.LCDA = window.LCDA || {};
+function read(){ try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []} }
+function write(c){ localStorage.setItem(KEY,JSON.stringify(c)); }
+LCDA.clear = function(){ write([]); };
+LCDA.remove = function(id){ write(read().filter(i=>i.id!==id)); render(); };
+LCDA.setQty = function(id,q){ const c=read(),it=c.find(i=>i.id===id); if(!it)return; it.qty=Math.max(1,parseInt(q)||1); write(c); render(); };
+function priceNum(p){ return parseFloat(String(p).replace(/[^0-9.,]/g,'').replace(',','.')) || 0; }
+function render(){
+  const wrap = document.getElementById('cart-content');
+  const footer = document.getElementById('cart-footer');
+  const c = read();
+  if(c.length===0){
+    wrap.innerHTML='<div class="empty"><p style="font-size:3rem;margin-bottom:.5rem">🛒</p><h2>Votre panier est vide</h2><p>Ajoutez des produits depuis notre catalogue.</p><a href="index.html#produits" class="btn-primary" style="margin-top:1rem">Voir le catalogue</a></div>';
+    footer.style.display='none'; return;
+  }
+  let total=0;
+  wrap.innerHTML='<table class="cart-tbl"><thead><tr><th>Produit</th><th>Prix unitaire</th><th>Quantité</th><th>Total</th><th></th></tr></thead><tbody>'+
+    c.map(i=>{
+      const price=priceNum(i.price), sub=price*i.qty; total+=sub;
+      return '<tr>'+
+        '<td><div class="pcell"><div class="pemoji">'+i.emoji+'</div><div><p class="pbrand">'+i.brand+'</p><p class="pname">'+i.name+'</p></div></div></td>'+
+        '<td>'+i.price+'</td>'+
+        '<td><input type="number" min="1" value="'+i.qty+'" onchange="LCDA.setQty(\''+i.id+'\',this.value)" class="qty"/></td>'+
+        '<td class="ptotal">'+sub.toFixed(2)+' €</td>'+
+        '<td><button class="rm" onclick="LCDA.remove(\''+i.id+'\')">✕</button></td>'+
+      '</tr>';
+    }).join('')+'</tbody></table>';
+  footer.style.display='flex';
+  document.getElementById('cart-total').textContent=total.toFixed(2)+' €';
+}
+document.addEventListener('DOMContentLoaded', render);
+</script>
+</body></html>

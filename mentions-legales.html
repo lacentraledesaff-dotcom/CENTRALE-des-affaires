@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mentions Légales | La Centrale Des Affaires</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #180995;
+      --blue:   #2713bc;
+      --accent: #e7cb2f;
+      --light:  #f5f7fa;
+      --white:  #ffffff;
+      --gray:   #6b7280;
+      --border: #e2e8f0;
+      --radius: 8px;
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--navy); background: var(--white); line-height: 1.6; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -.02em;
+    }
+    .logo span { color: var(--accent); }
+    .back-link {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: .9rem;
+      border: 1px solid var(--border);
+      padding: .5rem 1.2rem;
+      border-radius: var(--radius);
+      transition: border-color .2s, color .2s;
+    }
+    .back-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── CONTENU ── */
+    .legal-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+    .legal-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: .5rem;
+    }
+    .legal-updated {
+      font-size: .85rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 2.5rem;
+      margin-bottom: .8rem;
+      padding-bottom: .5rem;
+      border-bottom: 2px solid var(--border);
+    }
+    p { margin-bottom: 1rem; color: #374151; font-size: .96rem; }
+    ul { margin: 0 0 1rem 1.2rem; color: #374151; font-size: .96rem; }
+    li { margin-bottom: .4rem; }
+    a.inline { color: var(--accent); text-decoration: underline; }
+    strong { color: var(--navy); }
+
+    .placeholder {
+      background: #fff7ed;
+      border: 1px dashed #3c5ffb;
+      padding: .15rem .4rem;
+      border-radius: 4px;
+      color: #e7cb2f;
+      font-weight: 600;
+      font-size: .9em;
+    }
+
+    .info-box {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      margin-bottom: 2rem;
+      font-size: .9rem;
+      color: var(--gray);
+    }
+    .info-box strong { color: var(--navy); }
+
+    /* ── FOOTER simple ── */
+    footer {
+      background: var(--navy);
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem;
+      font-size: .85rem;
+    }
+    footer a { color: #94a3b8; text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    @media (max-width: 600px) {
+      .legal-wrap { padding: 2rem 1.2rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="logo">La Centrale<span> Des Affaires</span></a>
+    <a href="index.html" class="back-link">← Retour au site</a>
+  </nav>
+
+  <!-- CONTENU -->
+  <div class="legal-wrap">
+    <h1 class="legal-title">Mentions Légales</h1>
+    <p class="legal-updated">Dernière mise à jour : juin 2026</p>
+
+    <h2>1. Édition du site</h2>
+    <p>
+      Le présent site, accessible à l'adresse <strong><span class="placeholder">www.lacentraledesaffaires.fr</span></strong>, est édité par :
+    </p>
+    <ul>
+      <li><strong>Raison sociale :</strong> La Centrale Des Affaires</li>
+      <li><strong>Forme juridique :</strong> <span class="placeholder"> NSI SARL</span></li>
+      <li><strong>Siège social :</strong> <span class="placeholder">47, Bd de Ménilmontant, 75011, Paris</span></li>
+      <li><strong>SIRET / RCS :</strong> <span class="placeholder">417 652 377 00033</span></li>
+      <li><strong>Téléphone :</strong> <span class="placeholder">01 43 79 22 35</span></li>
+      <li><strong>E-mail :</strong> <span class="placeholder">contact@lacentraledesaffaires.fr</span></li>
+      <li><strong>Directeur de la publication :</strong> <span class="placeholder">Abel XXXX</span></li>
+    </ul>
+
+    <h2>2. Hébergement</h2>
+    <p>Le site est hébergé par :</p>
+    <ul>
+      <li><strong>Société :</strong> <span class="placeholder">Netlify</span></li>
+    </ul>
+
+    <h2>3. Propriété intellectuelle</h2>
+    <p>
+      L'ensemble du contenu présent sur ce site (textes, images, graphismes, logo, icônes, vidéos, mise en page) est, sauf mention contraire, la propriété exclusive de La Centrale Des Affaires ou de ses partenaires.
+    </p>
+    <p>
+      Les marques et logotypes figurant sur le site sont des signes déposés par l'Éditeur ou par des tiers/partenaires et protégés au titre du droit des marques. Toute reproduction, imitation ou usage, total ou partiel, de ces signes sans autorisation expresse de l'Éditeur, en violation des articles L.713-2 et suivants du Code de la propriété intellectuelle, engage la responsabilité de son auteur au titre d'actes de contrefaçon.
+    </p>
+    <p>
+      Les autres signes distinctifs reproduits sur le site (dénominations sociales, noms commerciaux, enseignes, noms de domaine) sont la propriété de l'Éditeur ou de tiers/partenaires. Toute reproduction sans autorisation expresse est susceptible d'engager la responsabilité civile de son auteur sur le fondement de l'article 1240 du Code civil.
+    </p>
+    <p>
+      Les éventuelles bases de données figurant sur le site sont protégées par les dispositions de la loi du 11 juillet 1998 portant transposition dans le Code de la propriété intellectuelle de la directive européenne du 11 mars 1996 relative à la protection juridique des bases de données.
+    </p>
+
+    <h2>4. Liens hypertextes</h2>
+    <p>
+      Les liens hypertextes mis en place dans le cadre du présent site internet en direction d'autres ressources présentes sur le réseau Internet, et notamment vers des partenaires, ont fait l'objet d'une autorisation préalable expresse.
+    </p>
+    <p>
+      Toute information accessible via un lien hypertexte n'est pas publiée par l'éditeur du présent site, celui-ci ne disposant d'aucun droit de regard sur les contenus mis en ligne à travers lesdits liens.
+    </p>
+    <p>
+      Aucun lien hypertexte menant vers ce site ne peut être activé sans l'autorisation expresse et préalable de l'Éditeur. Toute demande peut être adressée à l'adresse e-mail mentionnée à l'article 1.
+    </p>
+
+    <h2>5. Photographies et illustrations</h2>
+    <p>
+      Les photographies et visuels présentés sur le site, notamment ceux reproduisant des produits ou services proposés, sont fournis à titre indicatif et <strong>ne sont pas contractuels</strong>. Le produit ou service livré peut présenter de légères différences avec l'image affichée.
+    </p>
+
+    <h2>6. Protection des données personnelles</h2>
+    <p>
+      Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant.
+    </p>
+    <p>
+      Pour exercer ces droits, vous pouvez nous contacter à l'adresse : <span class="placeholder">contact@lacentraledesaffaires.fr</span>.
+    </p>
+    <p>
+      Pour plus d'informations, consultez notre <a href="politique-confidentialite.html" class="inline">Politique de Confidentialité</a>.
+    </p>
+
+    <h2>7. Cookies</h2>
+    <p>
+      Le site peut utiliser des cookies à des fins de mesure d'audience et d'amélioration de l'expérience utilisateur. En poursuivant votre navigation, vous acceptez l'utilisation de ces cookies. Vous pouvez à tout moment les désactiver via les paramètres de votre navigateur.
+    </p>
+
+    <h2>8. Limitation de responsabilité</h2>
+    <p>
+      La Centrale Des Affaires s'efforce d'assurer au mieux l'exactitude et la mise à jour des informations diffusées sur ce site, mais ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition.
+    </p>
+    <p>
+      La Centrale Des Affaires décline toute responsabilité pour toute interruption du site, survenance de bugs, ou pour tout dommage résultant d'une intrusion frauduleuse d'un tiers ayant entraîné une modification des informations mises à disposition sur le site.
+    </p>
+
+    <h2>9. Droit applicable</h2>
+    <p>
+      Les présentes mentions légales sont soumises au droit français. En cas de litige, et après tentative de résolution amiable, les tribunaux français seront seuls compétents.
+    </p>
+
+    <h2>10. Contact</h2>
+    <p>
+      Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter :
+    </p>
+    <ul>
+      <li>Par e-mail : <span class="placeholder">contact@lacentraledesaffaires.fr</span></li>
+      <li>Par téléphone : <span class="placeholder">01 43 79 22 35</span></li>
+      <li>Par courrier : <span class="placeholder">47, Bd de Ménilmontant, 75011 Paris</span></li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © La Centrale Des Affaires 2026 — <a href="index.html">Accueil</a> · <a href="politique-cookies.html">Cookies</a> · <a href="politique-confidentialite.html">Confidentialité</a>
+  </footer>
+
+</body>
+</html>
